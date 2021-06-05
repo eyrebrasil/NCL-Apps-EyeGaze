@@ -127,12 +127,6 @@
 			<bind role="set" component="video1" interface="ativo" >
         		<bindParam name="val" value="true"/>
       		</bind>
-			<bind role="set" component="video2" interface="ativo" >
-        		<bindParam name="val" value="false"/>
-      		</bind>
-			<bind role="set" component="video3" interface="ativo" >
-        		<bindParam name="val" value="false"/>
-      		</bind>
 		</link>
 
 		<link xconnector="onEndEyeGaze_StopStartSet">
@@ -142,14 +136,8 @@
 			<bind role="stop" component="video1"/>
 			<bind role="stop" component="video3"/>
 			<bind role="start" component="video2"/>
-			<bind role="set" component="video1" interface="ativo" >
-        		<bindParam name="val" value="false"/>
-      		</bind>
 			<bind role="set" component="video2" interface="ativo" >
         		<bindParam name="val" value="true"/>
-      		</bind>
-			<bind role="set" component="video3" interface="ativo" >
-        		<bindParam name="val" value="false"/>
       		</bind>
 		</link>
 
@@ -160,12 +148,6 @@
 			<bind role="stop" component="video1"/>
 			<bind role="stop" component="video2"/>
 			<bind role="start" component="video3"/>
-			<bind role="set" component="video1" interface="ativo" >
-        		<bindParam name="val" value="false"/>
-      		</bind>
-			<bind role="set" component="video2" interface="ativo" >
-        		<bindParam name="val" value="false"/>
-      		</bind>
 			<bind role="set" component="video3" interface="ativo" >
         		<bindParam name="val" value="true"/>
       		</bind>
