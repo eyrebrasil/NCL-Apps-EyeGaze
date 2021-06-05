@@ -80,7 +80,9 @@
     <port id="pM1" component="M1Img" />
     <port id="pM2" component="M2Img" />
 
-    <media id="fundoVideo" src="videos/Brasil_Copa_2002.mp4" descriptor="bkgVideoDesc"/>
+    <media id="fundoVideo" src="videos/Brasil_Copa_2002.mp4" descriptor="bkgVideoDesc">
+      <property name="soundLevel" value="0"/>
+    </media>
 
     <media id="M1Img" src="images/placar.png" descriptor="M1ImgDesc">
         <property name="bounds" value = "5,90%,20%,5%" /> 
