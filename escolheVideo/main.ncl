@@ -72,6 +72,11 @@
 				<simpleAction role="stop" max="unbounded"/>
 			</causalConnector>
 
+			<causalConnector id="onBegin_Start">
+				<simpleCondition role="onBegin"/>
+				<simpleAction role="start" max="unbounded"/>
+			</causalConnector>
+
 			<causalConnector id="onBeginEyeGaze_Set">
 				<connectorParam name="user"/>
 				<connectorParam name="val"/>
@@ -119,8 +124,6 @@
 			<bind role="stop" component="video2"/>
 			<bind role="stop" component="video3"/>
 			<bind role="start" component="video1"/>
-			<bind role="start" component="imgResume"/>
-			<bind role="start" component="imgPause"/>
 			<bind role="set" component="video1" interface="ativo" >
         		<bindParam name="val" value="true"/>
       		</bind>
@@ -139,8 +142,6 @@
 			<bind role="stop" component="video1"/>
 			<bind role="stop" component="video3"/>
 			<bind role="start" component="video2"/>
-			<bind role="start" component="imgResume"/>
-			<bind role="start" component="imgPause"/>
 			<bind role="set" component="video1" interface="ativo" >
         		<bindParam name="val" value="false"/>
       		</bind>
@@ -159,8 +160,6 @@
 			<bind role="stop" component="video1"/>
 			<bind role="stop" component="video2"/>
 			<bind role="start" component="video3"/>
-			<bind role="start" component="imgResume"/>
-			<bind role="start" component="imgPause"/>
 			<bind role="set" component="video1" interface="ativo" >
         		<bindParam name="val" value="false"/>
       		</bind>
@@ -230,7 +229,7 @@
 
 
 
-		<!-- Se um vídeo terminou é porque iniciei outro com o olhar. Logo: -->
+		<!-- Se um vídeo terminou é porque iniciei outro com o olhar: -->
 
 		<link xconnector="onEnd_Stop">
 			<bind role="onEnd" component="video1"/>
@@ -248,6 +247,28 @@
 			<bind role="onEnd" component="video3"/>
 			<bind role="stop" component="imgResume"/>
 			<bind role="stop" component="imgPause"/>
+		</link>
+
+
+
+		<!-- Se um vídeo iniciou preciso incluir os botões de pause e resume: -->
+
+		<link xconnector="onBegin_Start">
+			<bind role="onBegin" component="video1"/>
+			<bind role="start" component="imgResume"/>
+			<bind role="start" component="imgPause"/>
+		</link>
+
+		<link xconnector="onBegin_Start">
+			<bind role="onBegin" component="video2"/>
+			<bind role="start" component="imgResume"/>
+			<bind role="start" component="imgPause"/>
+		</link>
+
+		<link xconnector="onBegin_Start">
+			<bind role="onBegin" component="video3"/>
+			<bind role="start" component="imgResume"/>
+			<bind role="start" component="imgPause"/>
 		</link>
 
 
@@ -282,7 +303,7 @@
 		</link>
 
 		<link xconnector="onBeginEyeGaze_Set">
-			<bind role="onBeginEyeGaze" component="imgResume">
+			<bind role="onBeginEyeGaze" component="imgResume">    
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="__settings__" interface="service.currentFocus">

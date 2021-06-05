@@ -9,24 +9,22 @@
 
   <regionBase>   
 	  <region id="backgroundVideoReg" width="100%" height="100%" zIndex = "0" />
-    <region id="M1ImgReg" top ="10%"  left="10%" width="30%" height="5%" zIndex = "4"/> 
-    <region id="M2ImgReg" top ="10%"  left="50%" width="5%" height="5%" zIndex = "3"/>    
+    <region id="M1ImgReg" top ="10%"  left="10%" width="30%" height="5%" zIndex = "1"/> 
+    <region id="M2ImgReg" top ="10%"  left="50%" width="5%" height="5%" zIndex = "1"/>    
     <region id="R1ImgReg" left= "5" top = "5" width="30%" height="10%" zIndex = "2"/> 
     <region id="R2ImgReg" left= "5" bottom="5" width="30%" height="10%" zIndex = "2"/>    
     <region id="R3ImgReg" right= "5" top = "5" width="30%" height="10%" zIndex = "2"/> 
-    <region id="R4ImgReg" right="5" bottom = "5" width="30%" height="10%" zIndex = "2"/>    
-    <region id="askImgReg" top ="5%"  left="5%" width="10%" height="10%" zIndex = "1"/>    
+    <region id="R4ImgReg" right="5" bottom = "5" width="30%" height="10%" zIndex = "2"/>      
 	</regionBase>
 
   <descriptorBase>
     <descriptor id="bkgVideoDesc"  region="backgroundVideoReg"/>  
-    <descriptor id="M1ImgDesc"   region="M1ImgReg" focusIndex="0" focusBorderColor="yellow" focusBorderWidth="2"/>
-    <descriptor id="M2ImgDesc"   region="M2ImgReg" focusIndex="1" focusBorderColor="yellow" focusBorderWidth="2"/>
-    <descriptor id="R1ImgDesc"   region="R1ImgReg" focusIndex="2" focusBorderColor="yellow" focusBorderWidth="2"/>
-    <descriptor id="R2ImgDesc"   region="R2ImgReg" focusIndex="3" focusBorderColor="yellow" focusBorderWidth="2"/>
-    <descriptor id="R3ImgDesc"   region="R3ImgReg" focusIndex="4" focusBorderColor="yellow" focusBorderWidth="2"/>
-    <descriptor id="R4ImgDesc"   region="R4ImgReg" focusIndex="5" focusBorderColor="yellow" focusBorderWidth="2"/>
-    <descriptor id="askImgDesc"   region="askImgReg"/>
+    <descriptor id="M1ImgDesc"   region="M1ImgReg" focusIndex="0"/>
+    <descriptor id="M2ImgDesc"   region="M2ImgReg" focusIndex="1"/>
+    <descriptor id="R1ImgDesc"   region="R1ImgReg" focusIndex="2"/>
+    <descriptor id="R2ImgDesc"   region="R2ImgReg" focusIndex="3"/>
+    <descriptor id="R3ImgDesc"   region="R3ImgReg" focusIndex="4"/>
+    <descriptor id="R4ImgDesc"   region="R4ImgReg" focusIndex="5"/>
   </descriptorBase>
 	
 	<connectorBase> 
@@ -34,7 +32,7 @@
       <connectorParam name="user"/>
       <connectorParam name="val"/>
       <simpleCondition role="onEndEyeGaze" user="$user"/>
-      <compoundAction operator="par">
+      <compoundAction operator="seq">
         <simpleAction role="set" value="$val" max = "unbounded"/>
         <simpleAction role="start" value="$val" max = "unbounded"/>
       </compoundAction>
@@ -44,7 +42,7 @@
       <connectorParam name="user"/>
       <connectorParam name="val"/>
       <simpleCondition role="onEndEyeGaze" user="$user"/>
-      <compoundAction operator="par">
+      <compoundAction operator="seq">
         <simpleAction role="set" value="$val" max = "unbounded"/>
         <simpleAction role="stop" value="$val" max = "unbounded"/>
       </compoundAction>
@@ -53,7 +51,7 @@
     <causalConnector id="onEndEyeGazeTest_SetStop">  
       <connectorParam name="user"/>    
       <connectorParam name="val"/> 
-      <compoundCondition operator="and">
+      <compoundCondition operator="seq">
         <simpleCondition role="onEndEyeGaze" user="$user"/> 
         <assessmentStatement comparator="eq">
           <attributeAssessment role="test" eventType="attribution" attributeType="nodeProperty"/>
@@ -83,7 +81,6 @@
     <port id="pM2" component="M2Img" />
 
     <media id="fundoVideo" src="videos/Brasil_Copa_2002.mp4" descriptor="bkgVideoDesc"/>
-    <media id="askImage" src="images/askRed.png" descriptor="askImgDesc"/>
 
     <media id="M1Img" src="images/placar.png" descriptor="M1ImgDesc">
         <property name="bounds" value = "5,90%,20%,5%" /> 

@@ -24,7 +24,6 @@
 				<region bottom="3%" height="45%" id="rgfundoMenu" right="2%" width="36%" zIndex="1"/>
 				<region bottom="5%" height="10%" id="rgbto1" right="5%" width="30%" zIndex="2"/>
 				<region bottom="16%" height="10%" id="rgbto2" right="5%" width="30%" zIndex="2"/>
-				<region bottom="27%" height="10%" id="rgbto3" right="5%" width="30%" zIndex="2"/>
 			</region>
 		</regionBase>
 		
@@ -39,9 +38,6 @@
 				<descriptorParam name="transparency" value="0.8"/>
 			</descriptor>
 			<descriptor focusIndex="4" id="bto2" region="rgbto2" transIn="fadeFast" transOut="fadeFast">
-				<descriptorParam name="transparency" value="0.8"/>
-			</descriptor>
-			<descriptor focusIndex="5" id="bto3" region="rgbto3" transIn="fadeFast" transOut="fadeFast">
 				<descriptorParam name="transparency" value="0.8"/>
 			</descriptor>
 		</descriptorBase>
