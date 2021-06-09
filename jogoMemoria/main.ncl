@@ -7,17 +7,17 @@
 		<region id="rg3" top="15%" left="35%" width="25%" height="20%"/>
 		<region id="rg4" top="15%" left="65%" width="25%" height="20%"/>
 		<region id="rg5" left="15%" top="50%" width="60%" height="10%"/>
-		<region id="rg6" top="65%" left="35%" width="15%" height="9%"/>
-		<region id="rg7" top="65%" left="55%" width="15%" height="9%"/>
+		<region id="rg6" top="65%" left="35%" width="15%" height="29%"/>
+		<region id="rg7" top="65%" left="55%" width="15%" height="29%"/>
 		<region id="rgPergunta" top="2%" width="100%" height="10%"/>
 		
    	</regionBase>
 
 	<descriptorBase>
 	    <descriptor id="desc1"  region="rg1" explicitDur="5s"/> 
-		<descriptor id="desc2"  region="rg2" focusIndex="1"/>
-		<descriptor id="desc3"  region="rg3" focusIndex="2"/>
-		<descriptor id="desc4"  region="rg4" focusIndex="3"/>		
+		<descriptor id="desc2"  region="rg2" focusIndex="1" focusBorderColor="red"/>
+		<descriptor id="desc3"  region="rg3" focusIndex="2" focusBorderColor="red"/>
+		<descriptor id="desc4"  region="rg4" focusIndex="3" focusBorderColor="red"/>		
 		<descriptor id="desc5"  region="rg5" />		
 		<descriptor id="desc6"  region="rg6" focusIndex="4"/>		
 		<descriptor id="desc7"  region="rg7" focusIndex="5"/>	

@@ -10,6 +10,8 @@
 			<region bottom="16%" height="10%" id="rgbto2" right="5%" width="30%" zIndex="2"/>
 			<region bottom="27%" height="10%" id="rgbto3" right="5%" width="30%" zIndex="2"/>
 		</region>
+		<region height="100%" id="rgfullScreen2" width="100%" zIndex="1"/>
+
    	</regionBase>
 
 	<transitionBase>
@@ -19,6 +21,7 @@
 
 	<descriptorBase>
 		<descriptor id="fullScreen" region="rgfullScreen"/>
+		<descriptor id="fullScreen2" region="rgfullScreen2"/>
 		<descriptor id="fundoMenu" region="rgfundoMenu" transIn="fade" transOut="fade">
 			<descriptorParam name="transparency" value="0.8"/>
 		</descriptor>
@@ -67,7 +70,7 @@
 		<port id="pVideo" component="videoB3" />
 
 		<media id="videoB3" src="videos/B3.mp4" descriptor="fullScreen">
-			<area id="a1" begin="5s"/>
+			<area id="a1" begin="45s"/>
 		</media>
 		
 		<!--Componentes do menu-->
@@ -107,11 +110,11 @@
 
 		
 		<!--Video central-->
-		<media descriptor="fullScreen" id="C2" src="videos/C2.mp4">
+		<media descriptor="fullScreen2" id="C2" src="videos/C2.mp4">
 			<area id="a2" begin="43s"/>
 		</media>
 		<!--Video copacabana-->
-		<media descriptor="fullScreen" id="C3" src="videos/C3.mp4">
+		<media descriptor="fullScreen2" id="C3" src="videos/C3.mp4">
 			<area id="a3" begin="28s"/>
 		</media>
 
