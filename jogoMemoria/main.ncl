@@ -46,18 +46,18 @@
 		<simpleAction role="start" max="unbounded"/>
 	</causalConnector>
 
-	<causalConnector id="onSelectionSetStart">
+	<causalConnector id="onEndEyeGazeSetStart">
 		<connectorParam name="var"/>
-		<connectorParam name="key"/>
-		<simpleCondition role="onSelection" key="$key"/>
+		<connectorParam name="user"/>
+		<simpleCondition role="onEndEyeGaze" key="$user"/>
 		<simpleAction role="set" value="$var"/>
 		<simpleAction role="start" max="unbounded"/>
 	</causalConnector>
 
-	<causalConnector id="onSelectionSet">
+	<causalConnector id="onEndEyeGazeSet">
 		<connectorParam name="var"/>
-		<connectorParam name="key"/>
-		<simpleCondition role="onSelection" key="$key"/>
+		<connectorParam name="user"/>
+		<simpleCondition role="onEndEyeGaze" key="$user"/>
 		<simpleAction role="set" value="$var"/>
 	</causalConnector>
 
@@ -80,11 +80,13 @@
 			<property name="focusIndex" value="0"/>
 			<property name="moveRight" value="1"/>
 		</media>
+
 		<media id="item2" src="media/item2.png" descriptor="desc3">
 			<property name="focusIndex" value="1"/>
 			<property name="moveLeft" value="0"/>
 			<property name="moveRight" value="2"/>
 		</media>
+
 		<media id="item3" src="media/item3.png" descriptor="desc4">
 			<property name="focusIndex" value="2"/>
 			<property name="moveLeft" value="1"/>
@@ -93,7 +95,7 @@
 		<media id="sim" src="media/sim.png" descriptor="desc6"/>
 		<media id="nao" src="media/nao.png" descriptor="desc7"/>		
 
-		<media id="lua" src="script.lua" descriptor="desc5" type="application/x-ginga-NCLua">
+		<media id="lua" src="script.lua" descriptor="desc5">
 			<property name="i1" value="false"/>
 			<property name="i2" value="false"/>
 			<property name="i3" value="false"/>
@@ -101,7 +103,7 @@
 			<property name="nao-btn"/>
 		</media>
 
-		<media id="pergunta" src="pergunta.lua" descriptor="descPergunta" type="application/x-ginga-NCLua"/>
+		<media id="pergunta" src="pergunta.lua" descriptor="descPergunta"/>
 
 		<media id="settings" type="application/x-ginga-settings">
 			<property name="service.currentFocus" value="0" />
@@ -117,9 +119,9 @@
 		</link>
 
 		<!--Seta no lua a midia selecionada-->
-		<link xconnector="onSelectionSetStart">
-			<bind role="onSelection" component="item1">
-				<bindParam name="key" value="1"/>
+		<link xconnector="onEndEyeGazeSetStart">
+			<bind role="onEndEyeGaze" component="item1">
+				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="i1" >
 				<bindParam name="var" value="true"/>
@@ -129,9 +131,9 @@
 		</link>
 
 		<!--Seta no lua a midia selecionada-->
-		<link xconnector="onSelectionSetStart">
-			<bind role="onSelection" component="item2">
-				<bindParam name="key" value="2"/>
+		<link xconnector="onEndEyeGazeSetStart">
+			<bind role="onEndEyeGaze" component="item2">
+				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="i2" >
 				<bindParam name="var" value="true"/>
@@ -141,9 +143,9 @@
 		</link>
 
 		<!--Seta no lua a midia selecionada-->
-		<link xconnector="onSelectionSetStart">
-			<bind role="onSelection" component="item3">
-				<bindParam name="key" value="3"/>
+		<link xconnector="onEndEyeGazeSetStart">
+			<bind role="onEndEyeGaze" component="item3">
+				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="i3" >
 				<bindParam name="var" value="true"/>
@@ -159,18 +161,18 @@
 			</bind>			
 		</link-->
 
-		<link xconnector="onSelectionSet">
-			<bind role="onSelection" component="sim">
-				<bindParam name="key" value="s"/>
+		<link xconnector="onEndEyeGazeSet">
+			<bind role="onEndEyeGaze" component="sim">
+				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="sim-btn" >
 				<bindParam name="var" value="true"/>
 			</bind>			
 		</link>
 
-		<link xconnector="onSelectionSet">
-			<bind role="onSelection" component="nao">
-				<bindParam name="key" value="n"/>
+		<link xconnector="onEndEyeGazeSet">
+			<bind role="onEndEyeGaze" component="nao">
+				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="nao-btn" >
 				<bindParam name="var" value="true"/>
