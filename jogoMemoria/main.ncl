@@ -15,12 +15,12 @@
 
 	<descriptorBase>
 	    <descriptor id="desc1"  region="rg1" explicitDur="5s"/> 
-		<descriptor id="desc2"  region="rg2" />
-		<descriptor id="desc3"  region="rg3" />
-		<descriptor id="desc4"  region="rg4" />		
+		<descriptor id="desc2"  region="rg2" focusIndex="1"/>
+		<descriptor id="desc3"  region="rg3" focusIndex="2"/>
+		<descriptor id="desc4"  region="rg4" focusIndex="3"/>		
 		<descriptor id="desc5"  region="rg5" />		
-		<descriptor id="desc6"  region="rg6" />		
-		<descriptor id="desc7"  region="rg7" />	
+		<descriptor id="desc6"  region="rg6" focusIndex="4"/>		
+		<descriptor id="desc7"  region="rg7" focusIndex="5"/>	
 		<descriptor id="descPergunta" region="rgPergunta"/>		
 	</descriptorBase>
 	
@@ -67,6 +67,13 @@
 		<simpleAction role="set" value="$var"/>
 	</causalConnector>
 
+	<causalConnector id="onBeginEyeGazeSet">
+			<connectorParam name="user"/>
+			<connectorParam name="val"/>
+			<simpleCondition role="onBeginEyeGaze" user="$user"/>
+			<simpleAction role="set" value="$val" max="unbounded"/>
+		</causalConnector>
+
 	</connectorBase>
   </head>
 
@@ -76,21 +83,11 @@
 
 		<media id="video1" src="media/img-principal.png" descriptor="desc1"/>
 		
-		<media id="item1" src="media/item1.png" descriptor="desc2">
-			<property name="focusIndex" value="0"/>
-			<property name="moveRight" value="1"/>
-		</media>
+		<media id="item1" src="media/item1.png" descriptor="desc2"/>
 
-		<media id="item2" src="media/item2.png" descriptor="desc3">
-			<property name="focusIndex" value="1"/>
-			<property name="moveLeft" value="0"/>
-			<property name="moveRight" value="2"/>
-		</media>
+		<media id="item2" src="media/item2.png" descriptor="desc3"/>
 
-		<media id="item3" src="media/item3.png" descriptor="desc4">
-			<property name="focusIndex" value="2"/>
-			<property name="moveLeft" value="1"/>
-		</media>
+		<media id="item3" src="media/item3.png" descriptor="desc4"/>
 	
 		<media id="sim" src="media/sim.png" descriptor="desc6"/>
 		<media id="nao" src="media/nao.png" descriptor="desc7"/>		
@@ -182,6 +179,52 @@
 		<link xconnector="onEndStop">
 			<bind role="onEnd" component="lua"/>
 			<bind role="stop" component="context"/>
+		</link>
+
+		<!--link para dar foco ao objeto fixado com o olhar -->
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="item1">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="1"/>
+			</bind>	
+		</link>
+
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="item2">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="2"/>
+			</bind>	
+		</link>
+
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="item3">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="3"/>
+			</bind>	
+		</link>
+
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="sim">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="4"/>
+			</bind>	
+		</link>
+
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="nao">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="5"/>
+			</bind>	
 		</link>
 			
 </body>
