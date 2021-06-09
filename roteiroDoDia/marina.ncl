@@ -65,15 +65,15 @@
   	
 		<port id="pVideo" component="videoB3" />
 
-		<media id="videoB3" src="media-roteiro/videos/B3.mp4" descriptor="fullScreen">
+		<media id="videoB3" src="videos/B3.mp4" descriptor="fullScreen">
 			<area id="a1" begin="5s"/>
 		</media>
 		
 		<!--Componentes do menu-->
-		<media descriptor="fundoMenu" id="fundoMenuB3" src="media-roteiro/imagens/menufundo.png"/>
+		<media descriptor="fundoMenu" id="fundoMenuB3" src="imagens/menufundo.png"/>
 		<!-- Botoes -->
-		<media descriptor="bto2" id="botaoCentral" src="media-roteiro/imagens/central.png"/>
-		<media descriptor="bto1" id="botaoCopa" src="media-roteiro/imagens/copa.png"/>
+		<media descriptor="bto2" id="botaoCentral" src="imagens/central.png"/>
+		<media descriptor="bto1" id="botaoCopa" src="imagens/copa.png"/>
 
 		<link xconnector="onBeginStart">
 			<bind role="onBegin" component="videoB3" interface="a1" />
@@ -106,11 +106,11 @@
 
 		
 		<!--Video central-->
-		<media descriptor="fullScreen" id="C2" src="media-roteiro/videos/C2.mp4">
+		<media descriptor="fullScreen" id="C2" src="videos/C2.mp4">
 			<area id="a2" begin="43s"/>
 		</media>
 		<!--Video copacabana-->
-		<media descriptor="fullScreen" id="C3" src="media-roteiro/videos/C3.mp4">
+		<media descriptor="fullScreen" id="C3" src="videos/C3.mp4">
 			<area id="a3" begin="28s"/>
 		</media>
 
@@ -131,10 +131,10 @@
 
 
 		<!--Segunda opcao (Estudantina ou Jardim Botanico)-->
-		<media descriptor="bto1" id="botaoEstudantinaC2" src="media-roteiro/imagens/estudantina.png"/>
-		<media descriptor="bto2" id="botaoJardimBotanicoC2" src="media-roteiro/imagens/jardimbotanico.png"/>
-		<media descriptor="fullScreen" id="E1" src="media-roteiro/videos/E1.mp4"/>
-		<media descriptor="fullScreen" id="E2" src="media-roteiro/videos/E2.mp4"/>
+		<media descriptor="bto1" id="botaoEstudantinaC2" src="imagens/estudantina.png"/>
+		<media descriptor="bto2" id="botaoJardimBotanicoC2" src="imagens/jardimbotanico.png"/>
+		<media descriptor="fullScreen" id="E1" src="videos/E1.mp4"/>
+		<media descriptor="fullScreen" id="E2" src="videos/E2.mp4"/>
 
 		<!--Para o caso de C2 estar tocando-->
 		<link xconnector="onSelectionStopStart">
@@ -151,7 +151,7 @@
 
 		<!--Para o caso de C3 estar tocando-->
 		<link xconnector="onSelectionStopStart">
-			<bind role="onSelection" component="botaoEstudantinaC2">
+			<bind role="onSelection" component="botaoJardimBotanicoC2">
 				<bindParam name="key" value="2"/>
 			</bind>
 			<bind role="stop" component="C2"/>

@@ -141,11 +141,11 @@
 			<!-- settings -->
 			<media id="noSettingsInicio" instance="instSame" refer="noSettings"/>
 			<!-- medias -->
-			<media descriptor="fullScreen" id="vdoLivreInteragir" src="media/videos/A.mp4"/>
-			<media descriptor="btoSim" id="botaoSim" src="media/imagens/sim.png">
+			<media descriptor="fullScreen" id="vdoLivreInteragir" src="videos/A.mp4"/>
+			<media descriptor="btoSim" id="botaoSim" src="imagens/sim.png">
 				<property name="bounds"/>
 			</media>
-			<media descriptor="btoNao" id="botaoNao" src="media/imagens/nao.png">
+			<media descriptor="btoNao" id="botaoNao" src="imagens/nao.png">
 				<property name="bounds"/>
 			</media>
 			<!-- Ao terminar o video termina os dois botoes -->
@@ -196,9 +196,9 @@
 				Usuario nao pode interagir!
 			-->
 			<port component="vdoB2" id="ptVdoB2"/>
-			<media descriptor="fullScreen" id="vdoB2" src="media/videos/B2.mp4"/>
-			<media descriptor="fullScreen" id="vdoC2" src="media/videos/C2.mp4"/>
-			<media descriptor="fullScreen" id="vdoE2" src="media/videos/E2.mp4"/>
+			<media descriptor="fullScreen" id="vdoB2" src="videos/B2.mp4"/>
+			<media descriptor="fullScreen" id="vdoC2" src="videos/C2.mp4"/>
+			<media descriptor="fullScreen" id="vdoE2" src="videos/E2.mp4"/>
 			<link xconnector="onEndStart">
 				<bind component="vdoB2" role="onEnd"/>
 				<bind component="vdoC2" role="start"/>
@@ -218,7 +218,7 @@
 		<context id="ctxInteragir">
 			<!-- comeca com o video B3 (Abertura com interacao) -->
 			<port component="vdoB3" id="ptB3"/>
-			<media descriptor="fullScreen" id="vdoB3" src="media/videos/B3.mp4"/>
+			<media descriptor="fullScreen" id="vdoB3" src="videos/B3.mp4"/>
 			<!-- Depois de 45s que comeca o video B3, inicia o menu para que o usuario possa escolher qual o prox destino -->
 			<link xconnector="onBeginStartDelay">
 				<linkParam name="delay" value="45s"/>
@@ -236,14 +236,14 @@
 				<port component="fundoMenuB3" id="ptFundoMenuB3"/>
 				<port component="botaoCentral" id="ptBotaoCentral"/>
 				<port component="botaoCopa" id="ptBotaoCopa"/>
-				<media descriptor="fundoMenu" id="fundoMenuB3" src="media/imagens/menufundo.png"/>
+				<media descriptor="fundoMenu" id="fundoMenuB3" src="imagens/menufundo.png"/>
 				<!-- no settings -->
 				<media id="noSettingsI" type="application/x-ginga-settings">
 					<property name="proxVdo" value="C2"/>
 				</media>
 				<!-- Botoes -->
-				<media descriptor="bto1" id="botaoCentral" src="media/imagens/central.png"/>
-				<media descriptor="bto2" id="botaoCopa" src="media/imagens/copa.png"/>
+				<media descriptor="bto1" id="botaoCentral" src="imagens/central.png"/>
+				<media descriptor="bto2" id="botaoCopa" src="imagens/copa.png"/>
 				<!-- Ao selecionar botao central -> Para os outros botoes e seta o prox destino como C2 (Central do Brasil) -->
 				<link xconnector="onSelectionStopSetWithDur">
 					<bind component="botaoCentral" role="onSelection"/>
@@ -272,13 +272,13 @@
 					<mapping component="C2"/>
 				</switchPort>
 				<bindRule constituent="C2" rule="rC2"/>
-				<media descriptor="fullScreen" id="C2" src="media/videos/C2.mp4"/>
+				<media descriptor="fullScreen" id="C2" src="videos/C2.mp4"/>
 				<!-- permite acesso de fora a C3 -->
 				<switchPort id="ptC3">
 					<mapping component="C3"/>
 				</switchPort>
 				<bindRule constituent="C3" rule="rC3"/>
-				<media descriptor="fullScreen" id="C3" src="media/videos/C3.mp4"/>
+				<media descriptor="fullScreen" id="C3" src="videos/C3.mp4"/>
 			</switch>
 			
 			<!-- Ao iniciar C2, inicia menu C2 com delay de 35 segundos -->
@@ -293,12 +293,12 @@
 				<port component="fundoMenuC2" id="ptFundoMenuC2"/>
 				<port component="botaoEstudantinaC2" id="ptBotaoEstudantinaC2"/>
 				<port component="botaoJardimBotanicoC2" id="ptBotaoJardimBotanico"/>
-				<media descriptor="fundoMenu" id="fundoMenuC2" src="media/imagens/menufundo.png"/>
+				<media descriptor="fundoMenu" id="fundoMenuC2" src="imagens/menufundo.png"/>
 				<!-- no settings -->
 				<media id="noSettingsC2" instance="instSame" refer="noSettings"/>
 				<!-- Botoes -->
-				<media descriptor="bto1" id="botaoEstudantinaC2" src="media/imagens/estudantina.png"/>
-				<media descriptor="bto2" id="botaoJardimBotanicoC2" src="media/imagens/jardimbotanico.png"/>
+				<media descriptor="bto1" id="botaoEstudantinaC2" src="imagens/estudantina.png"/>
+				<media descriptor="bto2" id="botaoJardimBotanicoC2" src="imagens/jardimbotanico.png"/>
 				<!-- Ao selecionar botao Estudantina -> Para os outros botoes e seta o prox destino como E1 (Estudantina) -->
 				<link xconnector="onSelectionStopSetWithDur">
 					<bind component="botaoEstudantinaC2" role="onSelection"/>
@@ -338,9 +338,9 @@
 			<switch id="switchE">
 				<defaultComponent component="E2"/>
 				<bindRule constituent="E1" rule="rE1"/>
-				<media descriptor="fullScreen" id="E1" src="media/videos/E1.mp4"/>
+				<media descriptor="fullScreen" id="E1" src="videos/E1.mp4"/>
 				<bindRule constituent="E2" rule="rE2"/>
-				<media descriptor="fullScreen" id="E2" src="media/videos/E2.mp4"/>
+				<media descriptor="fullScreen" id="E2" src="videos/E2.mp4"/>
 			</switch>
 		</context>
 	</body>

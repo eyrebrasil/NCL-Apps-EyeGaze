@@ -95,7 +95,7 @@
 		<media id="sim" src="media/sim.png" descriptor="desc6"/>
 		<media id="nao" src="media/nao.png" descriptor="desc7"/>		
 
-		<media id="lua" src="script.lua" descriptor="desc5">
+		<media id="lua" src="script.lua" descriptor="desc5" type="application/x-ginga-NCLua">
 			<property name="i1" value="false"/>
 			<property name="i2" value="false"/>
 			<property name="i3" value="false"/>
@@ -103,7 +103,7 @@
 			<property name="nao-btn"/>
 		</media>
 
-		<media id="pergunta" src="pergunta.lua" descriptor="descPergunta"/>
+		<media id="pergunta" src="pergunta.lua" descriptor="descPergunta" type="application/x-ginga-NCLua"/>
 
 		<media id="settings" type="application/x-ginga-settings">
 			<property name="service.currentFocus" value="0" />
