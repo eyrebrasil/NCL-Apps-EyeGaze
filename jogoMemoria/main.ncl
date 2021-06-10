@@ -13,7 +13,7 @@
 		</regionBase>
 
 		<descriptorBase>
-			<descriptor id="dsVideo"  region="rgVideo" explicitDur="5s"/> 
+			<descriptor id="dsVideo"  region="rgVideo" explicitDur="10s"/> 
 			<descriptor id="dsItem1"  region="rgItem1" focusIndex="1"/>
 			<descriptor id="dsItem2"  region="rgItem2" focusIndex="2"/>
 			<descriptor id="dsItem3"  region="rgItem3" focusIndex="3"/>		
