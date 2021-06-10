@@ -6,8 +6,8 @@ function handler(evt)
         canvas:attrColor('black')
         canvas:drawRect('fill', 0, 0, dx,dy)
         canvas:attrColor('white')
-        canvas:attrFont('arial',15,'bold')
-        canvas:drawText(dx/8, dy/4, "Qual dos itens abaixo não apareceu na figura anterior?")
+        canvas:attrFont('arial',22,'bold')
+        canvas:drawText(dx/5, dy/4, "Qual dos itens abaixo não apareceu na figura anterior?")
         canvas:flush()
     end
 end

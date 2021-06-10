@@ -13,8 +13,8 @@
 			</region>
 
 			<region id="rgBottomMenu" left="0%" top="70%" width="70%" height="30%">
-				<region id="rgResume" left="20%" top="30%" width="25%" height="40%"/>
-				<region id="rgPause" left="55%" top="30%" width="25%" height="40%"/>
+				<region id="rgResume" left="15%" top="25%" width="30%" height="45%"/>
+				<region id="rgPause" left="55%" top="25%" width="30%" height="45%"/>
 			</region>
 		</regionBase>
 

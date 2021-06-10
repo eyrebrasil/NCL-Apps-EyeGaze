@@ -29,8 +29,8 @@ function handler(evt)
                 canvas:attrColor('black')
                 canvas:drawRect('fill', 0, 0, dx,dy)
                 canvas:attrColor('white')
-                canvas:attrFont('arial',20,'bold')
-                canvas:drawText(dx/4, dy/4, "Confirma seleção do item 1?")
+                canvas:attrFont('arial',22,'bold')
+                canvas:drawText(dx/3, dy/4, "Confirma seleção do item 1?")
                 print ("Selecionou item 1...")
                 item1 = true
                 item2 = false
@@ -43,8 +43,8 @@ function handler(evt)
                 canvas:attrColor('black')
                 canvas:drawRect('fill', 0, 0, dx,dy)
                 canvas:attrColor('white')
-                canvas:attrFont('arial',20,'bold')
-                canvas:drawText(dx/4, dy/4, "Confirma seleção do item 2?")
+                canvas:attrFont('arial',22,'bold')
+                canvas:drawText(dx/3, dy/4, "Confirma seleção do item 2?")
                 print ("Selecionou item 2...")
                 item1 = false
                 item2 = true
@@ -57,8 +57,8 @@ function handler(evt)
                 canvas:attrColor('black')
                 canvas:drawRect('fill', 0, 0, dx,dy)
                 canvas:attrColor('white')
-                canvas:attrFont('arial',20,'bold')
-                canvas:drawText(dx/4, dy/4, "Confirma seleção do item 3?")
+                canvas:attrFont('arial',22,'bold')
+                canvas:drawText(dx/3, dy/4, "Confirma seleção do item 3?")
                 print ("Selecionou item 3...")
                 item1 = false
                 item2 = false
@@ -66,25 +66,34 @@ function handler(evt)
                 canvas:flush()
             end
         end
-        --Clicou no botao sim ou no nao
+        --Clicou no botao sim
         if evt.name == "sim-btn" then
             if item3 then
                 canvas:attrColor('black')
                 canvas:drawRect('fill', 0, 0, dx,dy)
                 canvas:attrColor('white')
-                canvas:attrFont('arial',20,'bold')
-                canvas:drawText(dx/4, dy/4, "Parabéns, você acertou!")
+                canvas:attrFont('arial',22,'bold')
+                canvas:drawText(dx/3, dy/4, "Parabéns, você acertou!")
                 canvas:flush()
-                event.timer (5000, stop)
+                event.timer (3000, stop)
             elseif item1 or item2 then
                 canvas:attrColor('black')
                 canvas:drawRect('fill', 0, 0, dx,dy)
                 canvas:attrColor('white')
-                canvas:attrFont('arial',20,'bold')
-                canvas:drawText(dx/4, dy/4, "Que pena, você errou!")
+                canvas:attrFont('arial',22,'bold')
+                canvas:drawText(dx/3, dy/4, "Que pena, você errou!")
                 canvas:flush()
-                event.timer (5000, stop)
+                event.timer (3000, stop)
             end
+        end
+        --Clicou no botao nao
+        if evt.name == "nao-btn" then
+            canvas:attrColor('black')
+            canvas:drawRect('fill', 0, 0, dx,dy)
+            canvas:attrColor('white')
+            canvas:attrFont('arial',22,'bold')
+            canvas:drawText(dx/3, dy/4, "")
+            canvas:flush()
         end
     end
 end
