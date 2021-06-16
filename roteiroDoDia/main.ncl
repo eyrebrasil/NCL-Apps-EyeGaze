@@ -57,7 +57,7 @@
 
 		<!--Video de apresentação-->
 		<media id="videoB3" src="videos/B3.mp4" descriptor="fullScreen">
-			<area id="a1" begin="45s"/>
+			<area id="a1" begin="10s"/>
 		</media>
 
 		<!--Componentes do menu-->
@@ -100,7 +100,7 @@
 
 		
 		<!--Video Central-->
-		<media id="C2" descriptor="fullScreen2" src="videos/C2.mp4">
+		<media id="C2" descriptor="fullScreen2" src="videos/Central.mp4">
 			<area id="a2" begin="43s"/>
 		</media>
 

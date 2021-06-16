@@ -114,7 +114,6 @@
 			<bind role="start" component="item1" />
 			<bind role="start" component="item2" />
 			<bind role="start" component="item3" />
-			<bind role="start" component="lua"/>
 			<bind role="start" component="pergunta2"/>			
 		</link>
 

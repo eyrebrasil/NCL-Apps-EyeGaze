@@ -58,6 +58,12 @@
 				<simpleAction role="stop" max="unbounded"/>
 			</causalConnector>
 
+			<causalConnector id="onEndEyeGazeStop">
+				<connectorParam name="user"/>
+				<simpleCondition role="onEndEyeGaze" key="$user"/>
+				<simpleAction role="stop" max="unbounded"/>
+			</causalConnector>
+
 			<causalConnector id="onBeginEyeGazeSet">
 					<connectorParam name="user"/>
 					<connectorParam name="val"/>
@@ -108,48 +114,55 @@
 		</link>
 
 		<!--Seta no lua a midia selecionada-->
-		<link xconnector="onEndEyeGazeSetStart">
+		<link xconnector="onEndEyeGazeSetStop">
 			<bind role="onEndEyeGaze" component="item1">
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="i1" >
 				<bindParam name="var" value="true"/>
 			</bind>			
-			<bind role="start" component="sim"/>
-			<bind role="start" component="nao"/>				
+			<bind role="stop" component="item1"/>
+			<bind role="stop" component="item2"/>				
+			<bind role="stop" component="item3"/>				
 		</link>
-
-		<!--Seta no lua a midia selecionada-->
-		<link xconnector="onEndEyeGazeSetStart">
+		<link xconnector="onEndEyeGazeSetStop">
 			<bind role="onEndEyeGaze" component="item2">
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="i2" >
 				<bindParam name="var" value="true"/>
 			</bind>			
-			<bind role="start" component="sim"/>
-			<bind role="start" component="nao"/>				
+			<bind role="stop" component="item1"/>
+			<bind role="stop" component="item2"/>				
+			<bind role="stop" component="item3"/>				
 		</link>
-
-		<!--Seta no lua a midia selecionada-->
-		<link xconnector="onEndEyeGazeSetStart">
+		<link xconnector="onEndEyeGazeSetStop">
 			<bind role="onEndEyeGaze" component="item3">
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="i3" >
 				<bindParam name="var" value="true"/>
-			</bind>		
-			<bind role="start" component="sim"/>
-			<bind role="start" component="nao"/>					
+			</bind>			
+			<bind role="stop" component="item1"/>
+			<bind role="stop" component="item2"/>				
+			<bind role="stop" component="item3"/>				
 		</link>
 
-		<link xconnector="onEndEyeGazeSet">
+		<link xconnector="onEndStop">
+			<bind role="onEnd" component="lua"/>
+			<bind role="stop" component="context"/>
+		</link>
+	
+<!--
+		<link xconnector="onEndEyeGazeSetStop">
 			<bind role="onEndEyeGaze" component="sim">
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="set" component="lua" interface="sim-btn" >
 				<bindParam name="var" value="true"/>
 			</bind>			
+			<bind role="stop" component="sim"/>
+			<bind role="stop" component="nao"/>			
 		</link>
 
 		<link xconnector="onEndEyeGazeSetStop">
@@ -162,12 +175,7 @@
 			<bind role="stop" component="sim"/>
 			<bind role="stop" component="nao"/>			
 		</link>
-
-		<link xconnector="onEndStop">
-			<bind role="onEnd" component="lua"/>
-			<bind role="stop" component="context"/>
-		</link>
-
+-->
 		<!--link para dar foco ao objeto fixado com o olhar -->
 		<link xconnector="onBeginEyeGazeSet">
 			<bind role="onBeginEyeGaze" component="item1">

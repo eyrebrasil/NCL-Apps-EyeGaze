@@ -83,7 +83,7 @@
 		<media id="sim" src="media/sim.png" descriptor="dsSim"/>
 		<media id="nao" src="media/nao.png" descriptor="dsNao"/>		
 
-		<media id="lua" src="script.lua" descriptor="dsLua" type="application/x-ginga-NCLua">
+		<media id="lua" src="script2.lua" descriptor="dsLua" type="application/x-ginga-NCLua">
 			<property name="i1" value="false"/>
 			<property name="i2" value="false"/>
 			<property name="i3" value="false"/>
