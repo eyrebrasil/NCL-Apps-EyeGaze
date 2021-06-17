@@ -33,15 +33,6 @@
 				<simpleAction role="stop" max="unbounded"/>
 			</causalConnector>
 
-			<causalConnector id="onEndEyeGazeStopStart">
-				<connectorParam name="user"/>
-				<simpleCondition role="onEndEyeGaze" key="$user"/>
-				<compoundAction operator="seq">
-					<simpleAction role="start" max="unbounded"/>
-					<simpleAction role="stop" max="unbounded"/>
-				</compoundAction>
-			</causalConnector>
-
 			<causalConnector id="onEndEyeGazeStart">
 				<connectorParam name="user"/>
 				<simpleCondition role="onEndEyeGaze" key="$user"/>
@@ -63,8 +54,8 @@
 		<port id="pPergunta" component="pergunta1" />
 
 		<media id="mainVideo" src="media/selva.png" descriptor="dsVideo"/>
-		<media id="acertouVideo" src="media/acertou1.png" descriptor="dsResultado"/>
-		<media id="errouVideo" src="media/errou1.png" descriptor="dsResultado"/>
+		<media id="acertouVideo" src="media/acertou.png" descriptor="dsResultado"/>
+		<media id="errouVideo" src="media/errou.png" descriptor="dsResultado"/>
 
 		<media id="item1" src="media/elefante.png" descriptor="dsItem1"/>
 		<media id="item2" src="media/onca.png" descriptor="dsItem2"/>
@@ -86,45 +77,34 @@
 			<bind role="start" component="item2" />
 			<bind role="start" component="item3" />	
 		</link>
-<!--
-		<link xconnector="onEndEyeGazeStopStart">
+
+		<link xconnector="onEndEyeGazeStart">
 			<bind role="onEndEyeGaze" component="item1">
 				<bindParam name="user" value="all"/>
 			</bind>
-			<bind role="stop" component="pergunta2"/>			
-			<bind role="stop" component="item1"/>
-			<bind role="stop" component="item2"/>
-			<bind role="stop" component="item3"/>
 			<bind role="start" component="errouVideo"/>			
 		</link>
 
-		<link xconnector="onEndEyeGazeStopStart">
+		<link xconnector="onEndEyeGazeStart">
 			<bind role="onEndEyeGaze" component="item2">
 				<bindParam name="user" value="all"/>
 			</bind>
-			<bind role="stop" component="pergunta2"/>			
-			<bind role="stop" component="item1"/>
-			<bind role="stop" component="item2"/>
-			<bind role="stop" component="item3"/>
 			<bind role="start" component="errouVideo"/>			
 		</link>
-
-		<link xconnector="onEndEyeGazeStopStart">
-			<bind role="onEndEyeGaze" component="item3">
-				<bindParam name="user" value="all"/>
-			</bind>
-			<bind role="stop" component="pergunta2"/>			
-			<bind role="stop" component="item1"/>
-			<bind role="stop" component="item2"/>
-			<bind role="stop" component="item3"/>
-			<bind role="start" component="acertouVideo"/>			
-		</link>-->
 
 		<link xconnector="onEndEyeGazeStart">
 			<bind role="onEndEyeGaze" component="item3">
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="start" component="acertouVideo"/>			
+		</link>
+
+		<link xconnector="onBeginStop">
+			<bind role="onBegin" component="errouVideo"/>
+			<bind role="stop" component="pergunta2"/>			
+			<bind role="stop" component="item1"/>
+			<bind role="stop" component="item2"/>
+			<bind role="stop" component="item3"/>		
 		</link>
 
 		<link xconnector="onBeginStop">
@@ -135,10 +115,6 @@
 			<bind role="stop" component="item3"/>		
 		</link>
 
-
-
-
-	
 
 		<!--link para dar foco ao objeto fixado com o olhar -->
 		<link xconnector="onBeginEyeGazeSet">
