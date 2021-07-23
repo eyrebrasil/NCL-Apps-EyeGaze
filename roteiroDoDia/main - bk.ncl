@@ -109,6 +109,63 @@
 			<area id="a3" begin="28s"/>
 		</media>
 
+		<!--Componentes do segundo menu (Estudantina ou Jardim Botanico)-->
+		<media id="botaoEstudantinaE1" descriptor="bto1" src="imagens/estudantina.png"/>
+		<media id="E1" descriptor="fullScreen" src="videos/E1.mp4"/>
+		<media id="botaoJardimBotanicoE2" descriptor="bto2" src="imagens/jardimbotanico.png"/>
+		<media id="E2" descriptor="fullScreen" src="videos/E2.mp4"/>
+
+
+
+		<!--Caso Central tenha sido escolhida-->
+
+		<!--Exibe o segundo menu de opções-->
+		<link xconnector="onBeginStart">
+			<bind role="onBegin" component="C2" interface="a2" />
+			<bind role="start" component="fundoMenuB3"/>
+			<bind role="start" component="botaoEstudantinaE1"/>
+			<bind role="start" component="botaoJardimBotanicoE2"/>
+		</link>
+
+		<!--Caso Estudantina seja escolhida-->
+		<link xconnector="onEndEyeGazeStopStart">
+			<bind role="onEndEyeGaze" component="botaoEstudantinaE1">
+				<bindParam name="user" value="all"/>
+			</bind>
+			<bind role="stop" component="C2"/>
+			<bind role="stop" component="C3"/>
+			<bind role="stop" component="botaoEstudantinaE1"/>
+			<bind role="stop" component="botaoJardimBotanicoE2"/>
+			<bind role="stop" component="fundoMenuB3"/>
+			<bind role="start" component="E1"/>
+		</link>
+		
+
+
+		<!--Caso Copacabana tenha sido escolhida-->
+
+		<!--Exibe o segundo menu de opções-->
+		<link xconnector="onBeginStart">
+			<bind role="onBegin" component="C3" interface="a3" />
+			<bind role="start" component="fundoMenuB3"/>
+			<bind role="start" component="botaoEstudantinaE1"/>
+			<bind role="start" component="botaoJardimBotanicoE2"/>
+		</link>
+
+		<!--Caso Jardim Botanico seja escolhido-->
+		<link xconnector="onEndEyeGazeStopStart">
+			<bind role="onEndEyeGaze" component="botaoJardimBotanicoE2">
+				<bindParam name="user" value="all"/>
+			</bind>
+			<bind role="stop" component="C2"/>
+			<bind role="stop" component="C3"/>
+			<bind role="stop" component="botaoEstudantinaE1"/>
+			<bind role="stop" component="botaoJardimBotanicoE2"/>
+			<bind role="stop" component="fundoMenuB3"/>
+			<bind role="start" component="E2"/>
+		</link>
+
+
 
 		<!--link para dar foco ao objeto fixado com o olhar -->
 		<link xconnector="onBeginEyeGazeSet">
@@ -122,6 +179,24 @@
 
 		<link xconnector="onBeginEyeGazeSet">
 			<bind role="onBeginEyeGaze" component="botaoCentral">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="2"/>
+			</bind>	
+		</link>
+
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="botaoEstudantinaE1">
+				<bindParam name="user" value="all"/>				
+			</bind>
+			<bind role="set" component="__settings__" interface="service.currentFocus">
+				<bindParam name="val" value="1"/>
+			</bind>	
+		</link>
+
+		<link xconnector="onBeginEyeGazeSet">
+			<bind role="onBeginEyeGaze" component="botaoJardimBotanicoE2">
 				<bindParam name="user" value="all"/>				
 			</bind>
 			<bind role="set" component="__settings__" interface="service.currentFocus">
