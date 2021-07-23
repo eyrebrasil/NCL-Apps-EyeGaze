@@ -16,7 +16,7 @@
 	</transitionBase>
 
 	<descriptorBase>
-		<descriptor id="fullScreen" region="rgfullScreen"/>
+		<descriptor id="fullScreen" region="rgfullScreen" />
 		<descriptor id="fullScreen2" region="rgfullScreen2"/>
 		<descriptor id="fundoMenu" region="rgfundoMenu" transIn="fade" transOut="fade">
 			<descriptorParam name="transparency" value="0.8"/>
@@ -42,11 +42,13 @@
 			<simpleAction role="set" value="$val" max="unbounded"/>
 		</causalConnector>
 	
-		<causalConnector id="onEndEyeGazeStopStart">
+		<causalConnector id="onEndEyeGazeStartStop">
 			<connectorParam name="user"/>
 			<simpleCondition role="onEndEyeGaze" key="$user"/>
-			<simpleAction role="stop" max="unbounded"/>
-			<simpleAction role="start" max="unbounded"/>
+			<compoundAction>
+				<simpleAction role="start" max="unbounded"/>
+				<simpleAction role="stop" max="unbounded"/>
+			</compoundAction>
 		</causalConnector>
 	</connectorBase>
   </head>
@@ -64,6 +66,12 @@
 		<media id="fundoMenuB3" descriptor="fundoMenu" src="imagens/menufundo.png"/>
 		<media id="botaoCopa" descriptor="bto1" src="imagens/copa.png"/>
 		<media id="botaoCentral" descriptor="bto2" src="imagens/central.png"/>
+
+		<!--Video Central-->
+		<media id="C2" descriptor="fullScreen2" src="videos/Central.mp4"/>
+
+		<!--Video Copacabana-->
+		<media id="C3" descriptor="fullScreen2" src="videos/C3.mp4"/>
 		
 
 		<!--Menu com as primeiras opções-->
@@ -75,39 +83,28 @@
 		</link>
 
 		<!--Se o usuário escolhe a opção Central-->
-		<link xconnector="onEndEyeGazeStopStart">
+		<link xconnector="onEndEyeGazeStartStop">
 			<bind role="onEndEyeGaze" component="botaoCentral">
 				<bindParam name="user" value="all"/>
 			</bind>
+			<bind role="start" component="C2"/>
 			<bind role="stop" component="videoB3"/>
 			<bind role="stop" component="botaoCentral"/>
 			<bind role="stop" component="botaoCopa"/>
 			<bind role="stop" component="fundoMenuB3"/>
-			<bind role="start" component="C2"/>
 		</link>
 
 		<!--Se o usuário escolhe a opção Copacabana-->
-		<link xconnector="onEndEyeGazeStopStart">
+		<link xconnector="onEndEyeGazeStartStop">
 			<bind role="onEndEyeGaze" component="botaoCopa">
 				<bindParam name="user" value="all"/>
 			</bind>
+			<bind role="start" component="C3"/>
 			<bind role="stop" component="videoB3"/>
 			<bind role="stop" component="botaoCentral"/>
 			<bind role="stop" component="botaoCopa"/>
 			<bind role="stop" component="fundoMenuB3"/>
-			<bind role="start" component="C3"/>
 		</link>
-
-		
-		<!--Video Central-->
-		<media id="C2" descriptor="fullScreen2" src="videos/Central.mp4">
-			<area id="a2" begin="43s"/>
-		</media>
-
-		<!--Video Copacabana-->
-		<media id="C3" descriptor="fullScreen2" src="videos/C3.mp4">
-			<area id="a3" begin="28s"/>
-		</media>
 
 
 		<!--link para dar foco ao objeto fixado com o olhar -->
