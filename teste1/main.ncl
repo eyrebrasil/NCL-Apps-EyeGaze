@@ -12,9 +12,9 @@
 		</descriptorBase>
 
 		<connectorBase>
-			<causalConnector id="onEndEyeGaze_Stop">
+			<causalConnector id="onBeginEyeGaze_Stop">
 				<connectorParam name="user"/>
-				<simpleCondition role="onEndEyeGaze" user="$user"/>
+				<simpleCondition role="onBeginEyeGaze" user="$user"/>
 				<simpleAction role="stop"/>
 			</causalConnector>
 		</connectorBase>
@@ -26,8 +26,8 @@
 
 		<media id="img" descriptor="dsMain" src="image/gelo.jpg"/>
 
-		<link xconnector="onEndEyeGaze_Stop">
-			<bind role="onEndEyeGaze" component="img">
+		<link xconnector="onBeginEyeGaze_Stop">
+			<bind role="onBeginEyeGaze" component="img">
 				<bindParam name="user" value="all"/>
 			</bind>
 			<bind role="stop" component="img"/>
